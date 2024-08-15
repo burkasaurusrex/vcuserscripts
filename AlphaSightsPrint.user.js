@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name            AlphaSights Print
 // @namespace       http://www.sorensoncap.com
-// @version         0.3
+// @version         0.4
 // @description     Makes AlphaSights transcripts printable
 // @author          Burke Davis
 // @match           https://portal.alphasights.com/*
 // @grant           GM_addElement
 // @grant           GM_getResourceText
 // @grant           window.onurlchange
-// @resource        https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.css
+// @resource        userCss https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.css
 // @homepage        https://github.com/burkasaurusrex/vcuserscripts
 // @homepageURL     https://github.com/burkasaurusrex/vcuserscripts
 // @downloadURL     https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.js
@@ -29,7 +29,7 @@
     // var alphaNowRe = new RegExp("\\/alphanow?.*");
     // var projectsRe = new RegExp("\\/\\w+\\/experts\\/deliverables-view\\/.*");
     
-    var userCss = GM_getResourceText("AlphaSightsPrint.user.css");
+    var userCss = GM_getResourceText("userCss");
 
     function addPrintCss() {
         // Check if the CSS has already been inserted
