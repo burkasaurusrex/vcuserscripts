@@ -1,11 +1,15 @@
 // ==UserScript==
-// @name         Specter Navigate
-// @namespace    http://www.sorensoncapital.com
-// @version      0.4
-// @description  Navigate to expanded company page after landing
-// @author       Burke Davis
-// @match        https://app.tryspecter.com/signals/company/feed*userscript=true
-// @grant        none
+// @name            Specter Navigate
+// @namespace       http://www.sorensoncapital.com
+// @version         0.5
+// @description     Navigate to expanded company page after landing
+// @author          Burke Davis
+// @match           https://app.tryspecter.com/signals/company/feed*userscript=true
+// @homepage        https://github.com/burkasaurusrex/vcuserscripts
+// @homepageURL     https://github.com/burkasaurusrex/vcuserscripts
+// @downloadURL     https://github.com/burkasaurusrex/vcuserscripts/raw/main/SpecterNavigate.user.js
+// @updateURL       https://github.com/burkasaurusrex/vcuserscripts/raw/main/SpecterNavigate.user.js
+// @supportURL      https://github.com/burkasaurusrex/vcuserscripts/issues
 // ==/UserScript==
 
 (function() {

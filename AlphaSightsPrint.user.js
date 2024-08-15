@@ -1,11 +1,17 @@
 // ==UserScript==
-// @name         AlphaSights Print
-// @namespace    http://www.sorensoncap.com
-// @version      0.1
-// @description  Makes AlphaSights transcripts printable
-// @author       Burke Davis
-// @match        https://portal.alphasights.com/*
-// @grant        GM_addElement
+// @name            AlphaSights Print
+// @namespace       http://www.sorensoncap.com
+// @version         0.2
+// @description     Makes AlphaSights transcripts printable
+// @author          Burke Davis
+// @match           https://portal.alphasights.com/*
+// @grant           GM_addElement
+// @grant           window.onurlchange
+// @homepage        https://github.com/burkasaurusrex/vcuserscripts
+// @homepageURL     https://github.com/burkasaurusrex/vcuserscripts
+// @downloadURL     https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.js
+// @updateURL       https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.js
+// @supportURL      https://github.com/burkasaurusrex/vcuserscripts/issues
 // ==/UserScript==
 
 // To Do

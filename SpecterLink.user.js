@@ -1,12 +1,17 @@
 // ==UserScript==
-// @name         Specter Link
-// @namespace    http://www.sorensoncapital.com
-// @version      0.4
-// @description  Parse the domain from the current URL and navigate to Specter
-// @author       Burke Davis
-// @match        *://*/*
-// @grant        window.onurlchange
-// @require      https://cdnjs.cloudflare.com/ajax/libs/psl/1.9.0/psl.min.js
+// @name            Specter Link
+// @namespace       http://www.sorensoncapital.com
+// @version         0.5
+// @description     Parse the domain from the current URL and navigate to Specter
+// @author          Burke Davis
+// @match           *://*/*
+// @grant           window.onurlchange
+// @require         https://cdnjs.cloudflare.com/ajax/libs/psl/1.9.0/psl.min.js
+// @homepage        https://github.com/burkasaurusrex/vcuserscripts
+// @homepageURL     https://github.com/burkasaurusrex/vcuserscripts
+// @downloadURL     https://github.com/burkasaurusrex/vcuserscripts/raw/main/SpecterLink.user.js
+// @updateURL       https://github.com/burkasaurusrex/vcuserscripts/raw/main/SpecterLink.user.js
+// @supportURL      https://github.com/burkasaurusrex/vcuserscripts/issues
 // ==/UserScript==
 
 (function() {

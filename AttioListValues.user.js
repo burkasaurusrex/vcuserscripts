@@ -1,11 +1,16 @@
 // ==UserScript==
-// @name         Attio List Values
-// @namespace    http://www.sorensoncapital.com
-// @version      0.3
-// @description  Automatically clicks "Show all values" on Lists on load
-// @author       Burke Davis
-// @match        https://app.attio.com/*
-// @grant        window.onurlchange
+// @name            Attio List Values
+// @namespace       http://www.sorensoncapital.com
+// @version         0.4
+// @description     Automatically clicks "Show all values" on Lists on load
+// @author          Burke Davis
+// @match           https://app.attio.com/*
+// @grant           window.onurlchange
+// @homepage        https://github.com/burkasaurusrex/vcuserscripts
+// @homepageURL     https://github.com/burkasaurusrex/vcuserscripts
+// @downloadURL     https://github.com/burkasaurusrex/vcuserscripts/raw/main/AttioListValues.user.js
+// @updateURL       https://github.com/burkasaurusrex/vcuserscripts/raw/main/AttioListValues.user.js
+// @supportURL      https://github.com/burkasaurusrex/vcuserscripts/issues
 // ==/UserScript==
 
 (function() {
