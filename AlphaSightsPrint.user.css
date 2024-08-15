@@ -1,0 +1,68 @@
+@media print {
+    @page {
+        size: letter portrait;
+        margin-left: 0.25in;
+        margin-right: 0.25in;
+        margin-top: 0.5in;
+        margin-bottom: 0.5in;
+    }
+
+    /* Unset page scaffolding */
+    .aui-max-w-full,
+    .aui-h-screen,
+    .aui-relative,
+    .aui-h-full {
+        position: unset !important;
+        max-width: unset !important;
+        height: unset !important;
+    }
+
+    /* Hide all elements */
+    * {
+        visibility: hidden;
+    }
+
+    /* Unhide desired element */
+    div[data-testid="alpha-now-transcript"] *,
+    div[data-testid="deliverables-main-content"] * {
+        visibility: initial;
+    }
+
+    /* Reset desired element */
+    div[data-testid="alpha-now-transcript"],
+    div[data-testid="deliverables-main-content"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+        width: 100%;
+        height: unset !important;
+        overflow: visible !important;
+        visibility: initial;
+    }
+
+    /* Reset specific elements */
+    div[data-testid="alpha-now-transcript"] > div:nth-child(1) > div:nth-child(1) /* AlphaNow: fix header scrollbar */,
+    div[data-testid="deliverables-main-text"] div:has(> div[data-testid="transcript-content-view"]) /* Projects: fix content width */ {
+        height: auto !important;
+        width: auto !important;
+        overflow: auto !important;
+    }
+
+    /* Hide elements */
+    div:has(> button[data-testid="open-request-expert-modal"]) /* Request expert */,
+    div:has(> button[data-testid="upgrade-transcript"]) /* Upgrade expert */,
+    div[data-testid="alpha-now-transcript"] :has(div[role="listbox"]) /* AlphaNow: section select */,
+    div[data-testid="deliverables-main-text"] :has(div[role="listbox"]) /* Projects: section select */,
+    div[data-testid="deliverables-topbar"] :has(div[data-testid="deliverables-searchbar"]) /* Projects: search bar */,
+    div[data-testid="scroll-to-top"] /* Scroll to top */ {
+        display: none;
+    }
+    
+    /* Fix content */
+    div[data-testid^="conv-fragment"],
+    div.transcript-speaker-cue {
+        max-width: 97%;
+        page-break-inside: avoid;
+    }
+}
