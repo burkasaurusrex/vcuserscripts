@@ -42,17 +42,18 @@
     }
 
     /* Reset specific elements */
-    div[data-testid="alpha-now-transcript"] > div:nth-child(1) > div:nth-child(1) /* AlphaNow: fix header scrollbar */,
+    div[data-testid="alpha-now-transcript"] > div /* AlphaNow: scrollbars */,
+    div[data-testid="alpha-now-transcript"] > div > div /* AlphaNow: scrollbars */,
     div[data-testid="deliverables-main-text"] div:has(> div[data-testid="transcript-content-view"]) /* Projects: fix content width */ {
         height: auto !important;
         width: auto !important;
-        overflow: auto !important;
+        overflow: visible !important;
     }
 
     /* Hide elements */
     div:has(> button[data-testid="open-request-expert-modal"]) /* Request expert */,
     div:has(> button[data-testid="upgrade-transcript"]) /* Upgrade expert */,
-    div[data-testid="alpha-now-transcript"] :has(div[role="listbox"]) /* AlphaNow: section select */,
+    div[data-testid="alpha-now-transcript"] > div > div:has(div[role="listbox"]) /* AlphaNow: section select */,
     div[data-testid="deliverables-main-text"] :has(div[role="listbox"]) /* Projects: section select */,
     div[data-testid="deliverables-topbar"] :has(div[data-testid="deliverables-searchbar"]) /* Projects: search bar */,
     div[data-testid="scroll-to-top"] /* Scroll to top */ {
