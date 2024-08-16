@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            AlphaSights Print
 // @namespace       http://www.sorensoncap.com
-// @version         0.4
+// @version         0.5
 // @description     Makes AlphaSights transcripts printable
 // @author          Burke Davis
 // @match           https://portal.alphasights.com/*
@@ -9,7 +9,6 @@
 // @grant           GM_getResourceText
 // @grant           window.onurlchange
 // @resource        userCss https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.css
-// @homepage        https://github.com/burkasaurusrex/vcuserscripts
 // @homepageURL     https://github.com/burkasaurusrex/vcuserscripts
 // @downloadURL     https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.js
 // @updateURL       https://github.com/burkasaurusrex/vcuserscripts/raw/main/AlphaSightsPrint.user.js
@@ -25,26 +24,20 @@
 (function() {
     'use strict';
 
-    // Regex for pages, not currently needed
-    // var alphaNowRe = new RegExp("\\/alphanow?.*");
-    // var projectsRe = new RegExp("\\/\\w+\\/experts\\/deliverables-view\\/.*");
-    
-    var userCss = GM_getResourceText("userCss");
-
     function addPrintCss() {
         // Check if the CSS has already been inserted
         if (!document.querySelector('#user-print-css')) {
             GM_addElement('style', {
                 id: 'user-print-css',
                 type: 'text/css',
-                textContent: userCss
+                textContent: GM_getResourceText("userCss")
             });
         }
 
         // Press transcript button if its not pressed
-        const transcriptButton = document.querySelector('button[data-value="transcript"]');
+        const transcriptButton = document.querySelector('button[data-value="transcript"][aria-selected="false"]');
 
-        if (transcriptButton && transcriptButton.getAttribute('aria-selected') === 'false') {
+        if (transcriptButton) {
             transcriptButton.click();
         }
 
@@ -61,7 +54,7 @@
         if (userCssElement) { userCssElement.remove(); }
     }
 
+    // Run before and after print
     window.addEventListener('beforeprint', addPrintCss);
     window.addEventListener('afterprint', removePrintCss);
-
 })();
