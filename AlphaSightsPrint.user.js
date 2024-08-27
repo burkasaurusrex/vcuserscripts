@@ -16,9 +16,9 @@
 // ==/UserScript==
 
 // To Do
+// Change page title to sane default
 // Include other sections (summary, etc.)
 // Dowload audio
-// Change page title to sane default
 // Ability to rename participants
 
 (function() {
@@ -50,7 +50,7 @@
     }
 
     function removePrintCss() {
-        const userCssElement = document.getElementById('user-print-css');
+        const userCssElement = document.querySelector('#user-print-css');
         if (userCssElement) { userCssElement.remove(); }
     }
 

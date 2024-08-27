@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Specter Navigate
 // @namespace       http://www.sorensoncapital.com
-// @version         0.6
+// @version         0.7
 // @description     Navigate to expanded company page after landing
 // @author          Burke Davis
 // @match           https://app.tryspecter.com/signals/company/feed*userscript=true
@@ -25,7 +25,7 @@
             // Retry for ~5s until result is found
             i++;
             if (i < 50) {
-                setTimeout(navigate, 100);
+                setTimeout(navigateSpecter, 100);
             }
         } else if (matches.size === 1) {
             // Redirect if result is found
