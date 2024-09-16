@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name            Specter Link
 // @namespace       http://www.sorensoncapital.com
-// @version         1.0
+// @version         1.1
 // @description     Deep link into Specter via an Alt+S keyboard shortcut using current domain or Alt+S+Click using clicked link
 // @author          Burke Davis
 // @match           *://*/*
+// @exclude         *://*.tryspecter.com/*
 // @grant           window.onurlchange
 // @require         https://cdnjs.cloudflare.com/ajax/libs/psl/1.9.0/psl.min.js
 // @homepageURL     https://github.com/burkasaurusrex/vcuserscripts
@@ -39,10 +40,8 @@
         let domain = psl.get(selectedHostname);
 
         // Open new tab with concatenated URL
-        if (domain != 'tryspecter.com') {
-            let newTab = window.open();
-            newTab.location.href = `https://app.tryspecter.com/signals/company/feed?search=${domain}&userscript=true`;
-        }
+        let newTab = window.open();
+        newTab.location.href = `https://app.tryspecter.com/signals/company/feed?search=${domain}&userscript=true`;
     }
 
     // Listen for keydown event to detect Alt + S press
