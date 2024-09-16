@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Specter Link
 // @namespace       http://www.sorensoncapital.com
-// @version         1.1
+// @version         1.2
 // @description     Deep link into Specter via an Alt+S keyboard shortcut using current domain or Alt+S+Click using clicked link
 // @author          Burke Davis
 // @match           *://*/*
@@ -67,7 +67,7 @@
 
     // Intercept link clicks when Alt + S is active
     document.addEventListener('click', function(event) {
-        if (pressedAltS || (event.altKey && event.key.toLowerCase() === 's')) {
+        if (pressedAltS) {
             event.preventDefault(); // Prevent default Alt + click behavior (download link)
             clickedLink = true;
 
