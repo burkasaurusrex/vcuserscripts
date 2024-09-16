@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            AlphaSights Print
-// @namespace       http://www.sorensoncap.com
+// @namespace       http://www.sorensoncapital.com
 // @version         0.5
 // @description     Makes AlphaSights transcripts printable
 // @author          Burke Davis
@@ -30,7 +30,7 @@
             GM_addElement('style', {
                 id: 'user-print-css',
                 type: 'text/css',
-                textContent: GM_getResourceText("userCss")
+                textContent: GM_getResourceText('userCss')
             });
         }
 

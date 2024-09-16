@@ -16,7 +16,7 @@
     'use strict';
 
     let i = 0;
-    var re = new RegExp("\\/sorenson-capital\\/company\\/\\w+-\\w+-\\w+-\\w+-\\w+\\/\\w+");
+    var re = /\/sorenson-capital\/company\/\w+-\w+-\w+-\w+-\w+\/\w+/;
 
     // Test path since it's a single paged app
     function testPathName() {
@@ -30,7 +30,7 @@
     function clickButton() {
         // Very brittle regex unfortunately
         const button = document.querySelector('div[id^="radix"] button[type="button"]:not([aria-label]):not([aria-controls]):has(div:only-child)');
-        if (button && button.innerText.trim() === "Show all values") {
+        if (button && button.innerText.trim() === 'Show all values') {
             button.click();
         } else if (i < 50) {
             i++;

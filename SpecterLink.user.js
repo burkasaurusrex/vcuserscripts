@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name            Specter Link
 // @namespace       http://www.sorensoncapital.com
-// @version         0.6
-// @description     Parse the domain from the current URL and navigate to Specter
+// @version         1.0
+// @description     Deep link into Specter via an Alt+S keyboard shortcut using current domain or Alt+S+Click using clicked link
 // @author          Burke Davis
 // @match           *://*/*
 // @grant           window.onurlchange
@@ -16,20 +16,69 @@
 (function() {
     'use strict';
 
+    // Initialize states
+    let pressedAltS = false;
+    let clickedLink = false;
+
+    // Helper function to find the closest <a> tag by traversing parents
+    function findClosestLink(element) {
+        let parentCount = 0;
+        while (element && element !== document && parentCount < 10) {
+            if (element.tagName.toLowerCase() === 'a') {
+                return element;
+            }
+            element = element.parentElement;
+            parentCount++;
+        }
+        return null;
+    }    
+
     // Function to open new tab and navigate
-    function searchSpecter() {
+    function searchSpecter(selectedHostname = window.location.hostname) {       
         // Get current tab domain
-        let domain = psl.get(window.location.hostname);
+        let domain = psl.get(selectedHostname);
 
         // Open new tab with concatenated URL
-        let newTab = window.open();
-        newTab.location.href = `https://app.tryspecter.com/signals/company/feed?search=${domain}&userscript=true`;
+        if (domain != 'tryspecter.com') {
+            let newTab = window.open();
+            newTab.location.href = `https://app.tryspecter.com/signals/company/feed?search=${domain}&userscript=true`;
+        }
     }
 
-    // Run on keyboard shortcut
+    // Listen for keydown event to detect Alt + S press
     document.addEventListener('keydown', function(event) {
-        if (event.altKey && event.key === 's') {
-            searchSpecter();
+        if (event.altKey && event.key.toLowerCase() === 's') {
+            pressedAltS = true;
         }
     });
+
+    // Listen for keyup event to reset the Alt + S state
+    document.addEventListener('keyup', function(event) {
+        if (pressedAltS) {
+            if (!clickedLink) {
+                // No link was clicked, open a new tab with the current page's URL
+                searchSpecter();
+            }
+
+            // Reset states
+            pressedAltS = false;
+            clickedLink = false;
+        }
+    });
+
+    // Intercept link clicks when Alt + S is active
+    document.addEventListener('click', function(event) {
+        if (pressedAltS || (event.altKey && event.key.toLowerCase() === 's')) {
+            event.preventDefault(); // Prevent default Alt + click behavior (download link)
+            clickedLink = true;
+
+            const linkElement = findClosestLink(event.target);
+            if (linkElement) {
+                searchSpecter(new URL(linkElement.href).hostname);
+            }
+            else {
+                alert('Unable to find link from click - if you want this webpage supported, please report it');
+            }
+        }
+    });    
 })();
